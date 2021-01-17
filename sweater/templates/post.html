@@ -6,7 +6,16 @@
 
 {% block cont  %}
 <div class="container">
-    <h1>Все статьи на сайте </h1>
+
+
+
+<div class="grid">
+    <h2>Опубликованные посты <a class="btn btn-success" href='/create-article' role="button">Создать</a></h2>
+
+  </div>
+
+
+</div>
 
     {% if articles|length > 0 %}
 
@@ -14,7 +23,8 @@
         <div class="alert alert-info">
             <h2>{{ el.title }}</h2>
             <p>{{ el.intro }}</p>
-            <p><b>Дата: {{ el.date.date()}}</b></p>
+            <p><b>Автор: {{ el.author }}</b>  Дата: {{ el.date.date()}}</p>
+
             <a href="/posts/{{ el.id }}" class="btn btn-info">Читать полностью</a>
         </div>
         {% endfor %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block name %}
+Главная страница
+{% endblock %}
+
+{% block cont %}
+<h1>Добро пожаловать, {{ user_load.login }}!     </h1>
+
+
+
+    <div class="container">
+    <h2>Зарегистрированные пользователи</h2>
+
+    {% if users|length > 0 %}
+
+        {% for el in users %}
+        <div class="alert alert-info">
+            <h4>{{ el.login }}</h4>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>Нет пользователей</p>
+    {% endif %}
+
+</div>
+{% endblock %}

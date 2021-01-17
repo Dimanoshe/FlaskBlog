@@ -14,9 +14,30 @@
         <p><b>Дата: {{ article.date.date()}}</b></p>
         <a href="/posts/{{ article.id }}/delete" class="btn btn-danger">Удалить</a>
         <a href="/posts/{{ article.id }}/update" class="btn btn-warning">Изменить</a>
+        <a href="/posts/{{ article.id }}/create-comment" class="btn btn-success">Коментировать</a>
+    </div>
 
     </div>
-    
+
+
+
+       {% if comment|length > 0 %}
+            {% for i in comment %}
+
+                {% if i.art_id|string == article.id|string %}
+                    <p>{{ i.text }}</p>
+
+                {% endif %}
+            {% endfor %}
+       {% else %}
+            <p>Коментариев еще нет</p>
+       {% endif %}
+
+    </div>
+
+
+
+
 </div>
 
 {% endblock %}

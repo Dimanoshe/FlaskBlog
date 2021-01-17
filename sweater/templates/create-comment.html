@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block name %}
+Комментирование
+{% endblock %}
+
+
+{% block cont %}
+
+
+<div class="container">
+    <h1>Добавление комментария к статье № {{ id }}</h1>
+    <form action="/posts/{{ id }}/create-comment" method="post">
+        <textarea name="text" id="text" class="form-control" placeholder="Ваш комментарий"></textarea><br>
+
+        <br>
+        <input type="submit"  class="btn btn-success" value="отправить"><br>
+        <br>
+
+    </form>
+</div>
+{% endblock %}
